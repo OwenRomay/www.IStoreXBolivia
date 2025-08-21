@@ -1,0 +1,179 @@
+  :root {
+      --color-azul: #3056ff;
+      --color-rojo: #ff4d4f;
+      --color-blanco: #ffffff;
+      --color-texto: #d8defe;
+      --sombra: 0 20px 30px rgba(0, 0, 0, 0.45);
+      --borde-suave: rgba(255,255,255,0.10);
+      --radio: 20px;
+      --verde-wsp: #25D366;
+      --verde-wsp-hover: #1ebe5c;
+    }
+
+    /* Reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-image: url(img/logoizone.png);
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+      color: var(--color-texto);
+    }
+
+    /* =================== HEADER con imagen =================== */
+    header {
+      position: relative;
+      padding: 2.2rem 1rem 2rem;
+      text-align: center;
+      font-weight: bold;
+      color: var(--color-blanco);
+      border-bottom-left-radius: var(--radio);
+      border-bottom-right-radius: var(--radio);
+      background: url("img/header.jpg") center/cover no-repeat; /* ⬅️ Pon tu imagen aquí */
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.65));
+    }
+    header * { position: relative; z-index: 1; }
+
+    header .title {
+      font-family: 'Lobster', cursive;
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      text-shadow: 0 0 18px rgba(48,86,255,.6);
+    }
+
+    .tagline {
+      max-width: 900px;
+      margin: 14px auto 0;
+      font-family: 'Lobster', cursive;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: #ffffff;
+    }
+
+    /* =================== TÍTULOS =================== */
+    h2 {
+      color: #fffafa;
+      background: linear-gradient(135deg, rgba(48,86,255,.25), rgba(255,255,255,.06));
+      border: 1px solid var(--borde-suave);
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 30px;
+      font-family: 'Lobster', cursive;
+      text-align: center;
+      width: fit-content;
+      margin: 40px auto 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,.25);
+      backdrop-filter: blur(6px);
+    }
+
+    /* =================== SECCIONES =================== */
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      padding: 22px;
+      max-width: 1300px;
+      margin: 0 auto;
+      border-radius: var(--radio);
+      border: 1px solid var(--borde-suave);
+      box-shadow: var(--sombra);
+      backdrop-filter: blur(6px);
+    }
+    .catalogo--celulares {
+      background:
+        radial-gradient(800px 300px at 15% -10%, rgba(48,86,255,.18), transparent 60%),
+        radial-gradient(900px 340px at 85% -10%, rgba(0,255,234,.10), transparent 65%),
+        rgba(10,14,24,.65);
+    }
+    .catalogo--accesorios {
+      background:
+        radial-gradient(900px 320px at 15% -10%, rgba(255,120,220,.16), transparent 60%),
+        radial-gradient(800px 340px at 85% -10%, rgba(255,200,0,.10), transparent 65%),
+        rgba(10,14,24,.65);
+    }
+    .catalogo--cargadores {
+      background:
+        radial-gradient(900px 320px at 15% -10%, rgba(0,190,140,.18), transparent 60%),
+        radial-gradient(800px 340px at 85% -10%, rgba(48,86,255,.12), transparent 65%),
+        rgba(10,14,24,.65);
+    }
+
+    /* =================== CARD PRODUCTO =================== */
+    .producto {
+  background: rgba(255,255,255,.05);
+  border: 2px solid transparent; /* borde difuminado */
+  border-radius: 18px;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(48,86,255,0.35), 0 0 25px rgba(0, 26, 255, 0.25); /* glow difuminado */
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+  backdrop-filter: blur(8px) saturate(120%);
+
+}
+    .producto:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 22px 36px rgba(0,0,0,.55);
+    }
+    .producto img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      margin: 0 auto 1rem;
+      border: 2px solid rgba(48,86,255,.6);
+      display: block;
+    }
+    .nombre-modelo {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: .35rem;
+    }
+    .precio {
+      color: white
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: .8rem;
+    }
+    .producto ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1rem;
+      text-align: center;
+      color: #e9ecff;
+      font-size: .95rem;
+    }
+
+    /* =================== BOTÓN WHATSAPP =================== */
+    .whatsapp-button {
+      background: linear-gradient(180deg, var(--verde-wsp), #1fd05b);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 999px;
+      font-size: .95rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 10px 16px rgb(0, 81, 255);
+    }
+    .whatsapp-button:hover {
+      background: var(--azul-wsp-hover);
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    /* =================== FOOTER =================== */
+    footer {
+      text-align: center;
+      font-size: .9rem;
+      color: #cfd6ff;
+      padding: 2rem;
+      margin-top: 3rem;
+    }

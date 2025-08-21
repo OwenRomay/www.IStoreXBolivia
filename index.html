@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ISTORE BOLIVIA</title>
+  <link rel="icon" href="img/d71d1754-53b9-4e2f-83ee-c36b3a145653.png">
+
+  <style>
+    :root {
+      --color-azul: #3056ff;
+      --color-rojo: #ff4d4f;
+      --color-blanco: #ffffff;
+      --color-texto: #d8defe;
+      --sombra: 0 20px 30px rgba(0, 0, 0, 0.45);
+      --borde-suave: rgba(255,255,255,0.10);
+      --radio: 20px;
+      --verde-wsp: #25D366;
+      --verde-wsp-hover: #1ebe5c;
+    }
+
+    /* Reset */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-image: url(img/logoizone.png);
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+      color: var(--color-texto);
+    }
+
+    /* =================== HEADER con imagen =================== */
+    header {
+      position: relative;
+      padding: 2.2rem 1rem 2rem;
+      text-align: center;
+      font-weight: bold;
+      color: var(--color-blanco);
+      border-bottom-left-radius: var(--radio);
+      border-bottom-right-radius: var(--radio);
+      background: url("img/header.jpg") center/cover no-repeat; /* ⬅️ Pon tu imagen aquí */
+      overflow: hidden;
+    }
+    header::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.65));
+    }
+    header * { position: relative; z-index: 1; }
+
+    header .title {
+      font-family: 'Lobster', cursive;
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
+      text-shadow: 0 0 18px rgba(48,86,255,.6);
+    }
+
+    .tagline {
+      max-width: 900px;
+      margin: 14px auto 0;
+      font-family: 'Lobster', cursive;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: #ffffff;
+    }
+
+    /* =================== TÍTULOS =================== */
+    h2 {
+      color: #fffafa;
+      background: linear-gradient(135deg, rgba(48,86,255,.25), rgba(255,255,255,.06));
+      border: 1px solid var(--borde-suave);
+      border-radius: 999px;
+      padding: 10px 18px;
+      font-size: 30px;
+      font-family: 'Lobster', cursive;
+      text-align: center;
+      width: fit-content;
+      margin: 40px auto 10px;
+      box-shadow: 0 10px 20px rgba(0,0,0,.25);
+      backdrop-filter: blur(6px);
+    }
+
+    /* =================== SECCIONES =================== */
+    .catalogo {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 22px;
+      padding: 22px;
+      max-width: 1300px;
+      margin: 0 auto;
+      border-radius: var(--radio);
+      border: 1px solid var(--borde-suave);
+      box-shadow: var(--sombra);
+      backdrop-filter: blur(6px);
+    }
+    .catalogo--celulares {
+      background:
+        radial-gradient(800px 300px at 15% -10%, rgba(48,86,255,.18), transparent 60%),
+        radial-gradient(900px 340px at 85% -10%, rgba(0,255,234,.10), transparent 65%),
+        rgba(10,14,24,.65);
+    }
+    .catalogo--accesorios {
+      background:
+        radial-gradient(900px 320px at 15% -10%, rgba(255,120,220,.16), transparent 60%),
+        radial-gradient(800px 340px at 85% -10%, rgba(255,200,0,.10), transparent 65%),
+        rgba(10,14,24,.65);
+    }
+    .catalogo--cargadores {
+      background:
+        radial-gradient(900px 320px at 15% -10%, rgba(0,190,140,.18), transparent 60%),
+        radial-gradient(800px 340px at 85% -10%, rgba(48,86,255,.12), transparent 65%),
+        rgba(10,14,24,.65);
+    }
+
+    /* =================== CARD PRODUCTO =================== */
+    .producto {
+  background: rgba(255,255,255,.05);
+  border: 2px solid transparent; /* borde difuminado */
+  border-radius: 18px;
+  padding: 1.2rem;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(48,86,255,0.35), 0 0 25px rgba(0, 26, 255, 0.25); /* glow difuminado */
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+  backdrop-filter: blur(8px) saturate(120%);
+
+}
+    .producto:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,.12);
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 22px 36px rgba(0,0,0,.55);
+    }
+    .producto img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 16px;
+      margin: 0 auto 1rem;
+      border: 2px solid rgba(48,86,255,.6);
+      display: block;
+    }
+    .nombre-modelo {
+      font-weight: 800;
+      font-size: 1.15rem;
+      color: #ffffff;
+      margin-bottom: .35rem;
+    }
+    .precio {
+      color: white
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: .8rem;
+    }
+    .producto ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1rem;
+      text-align: center;
+      color: #e9ecff;
+      font-size: .95rem;
+    }
+
+    /* =================== BOTÓN WHATSAPP =================== */
+    .whatsapp-button {
+      background: linear-gradient(180deg, var(--verde-wsp), #1fd05b);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 999px;
+      font-size: .95rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background .2s ease, transform .2s ease, filter .2s ease;
+      box-shadow: 0 10px 16px rgb(0, 81, 255);
+    }
+    .whatsapp-button:hover {
+      background: var(--azul-wsp-hover);
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    /* =================== FOOTER =================== */
+    footer {
+      text-align: center;
+      font-size: .9rem;
+      color: #cfd6ff;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="title">iStore Bolivia</div>
+    <div class="tagline">
+      En iStore X Bolivia encontrarás la mejor selección de iPhones nuevos, seminuevos, originales, en excelente estado y con garantía.
+      Nuestros dispositivos son revisados cuidadosamente para ofrecerte calidad, rendimiento y precio justo.
+      <br><br>
+      💎 Calidad garantizada &nbsp; ⚡ Alto rendimiento &nbsp; 💰 Precios accesibles
+      <br><br>
+      Tu próximo iPhone está en iStore X Bolivia 🚀
+    </div>
+  </header>
+
+  <h2>📱 Celulares Disponibles</h2>
+  <section class="catalogo catalogo--celulares">
+
+    <!-- iPhone 12 -->
+    <div class="producto">
+      <img src="img/ipo 12.jpg" alt="iPhone 15 Pro Max" width="200" height="150">
+      <div class="nombre-modelo">iPhone 12</div>
+      <div class="precio">4.000 Bs</div>
+      <ul>
+        <li>📱 6.1" Super Retina XDR</li>
+        <li>📸 Cámara 12 MP</li>
+        <li>⚡ 64 Gb</li>
+        <li>⚡ TrueTone</li>
+        <li>🔋 Batería: 83%</li>
+        <li>🔐 Face ID </li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20iPhone%2015%20Pro%20Max" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- iPhone 11-->
+    <div class="producto">
+      <img src="img/ipo 11.jpg" alt="iPhone 14 Pro" width="200" height="150">
+      <div class="nombre-modelo">iPhone 11</div>
+      <div class="precio">2.600 Bs</div>
+      <ul>
+        <li>📱 6.1" Liquid Retina HD</li>
+        <li>📸 Cámara 12MP</li>
+        <li>⚡ TrueTone</li>
+        <li>🔋 Batería: 76%</li>
+        <li>🟣 Face Id</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20iPhone%2014%20Pro" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- iPhone 13 Pro Max -->
+    <div class="producto">
+      <img src="img/iphone3.jpg" alt="iPhone 13 Pro Max" width="200" height="150">
+      <div class="nombre-modelo">iPhone 13 Pro Max</div>
+      <div class="precio">$699 USD</div>
+      <ul>
+        <li>📱 6.7" Super Retina XDR</li>
+        <li>📸 Cámara triple 12MP</li>
+        <li>⚡ Chip A15 Bionic</li>
+        <li>🔋 Batería: 28h video</li>
+        <li>🔐 Face ID, 5G</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20iPhone%2013%20Pro%20Max" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- iPhone 12 Mini -->
+    <div class="producto">
+      <img src="img/iphone4.jpg" alt="iPhone 12 Mini" width="200" height="150">
+      <div class="nombre-modelo">iPhone 12 Mini</div>
+      <div class="precio">$499 USD</div>
+      <ul>
+        <li>📱 5.4" OLED</li>
+        <li>📸 Cámara dual 12MP</li>
+        <li>⚡ Chip A14 Bionic</li>
+        <li>🔋 Batería: 15h video</li>
+        <li>🌐 5G, MagSafe</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20iPhone%2012%20Mini" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- iPhone 11 Pro -->
+    <div class="producto">
+      <img src="img/iphone5.jpg" alt="iPhone 11 Pro" width="200" height="150">
+      <div class="nombre-modelo">iPhone 11 Pro</div>
+      <div class="precio">$399 USD</div>
+      <ul>
+        <li>📱 5.8" OLED</li>
+        <li>📸 Cámara triple 12MP</li>
+        <li>⚡ Chip A13 Bionic</li>
+        <li>🔋 Batería: 18h video</li>
+        <li>💦 Resistencia al agua IP68</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20iPhone%2011%20Pro" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+  </section>
+
+  <h2>🧩 Accesorios</h2>
+  <section class="catalogo catalogo--accesorios">
+
+    <!-- Fundas Carga StaFace -->
+    <div class="producto">
+      <img src="img/fondo2.jpg" alt="iPhone 15 Pro Max" width="200" height="150">
+      <div class="nombre-modelo">Fundas Carga MagFace</div>
+      <div class="precio">150 Bs</div>
+      <ul>
+        <p>COLORES DISPONIBLES</p>
+        <li>Negro</li>
+        <li>Rosado</li>
+        <li>Azul</li>
+        <li>Plomo</li>
+        <li>Celeste</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20iPhone%2015%20Pro%20Max" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- Funda Acrilicas -->
+    <div class="producto">
+      <img src="img/fundas.jpg" alt="Funda Acrilicas" width="200" height="150">
+      <div class="nombre-modelo">Funda Acrilicas</div>
+      <div class="precio">50 BS</div>
+      <ul>
+        <p>COLORES DISPONIBLES</p>
+        <li>Negro</li>
+        <li>Rosado</li>
+        <li>Azul</li>
+        <li>Plomo</li>
+        <li>Celeste</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20iPhone%2014%20Pro" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- Fundas Tansparentes StaFAce -->
+    <div class="producto">
+      <img src="img/fun.jpg" alt="Fundas Tansparentes StaFAce" width="200" height="150">
+      <div class="nombre-modelo">Fundas Tansparentes MagFAce</div>
+      <div class="precio">150 BS</div>
+      <ul>
+        <p>COLORES DISPONIBLES</p>
+        <li>Negro</li>
+        <li>Rosado</li>
+        <li>Azul</li>
+        <li>Plomo</li>
+        <li>Celeste</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20iPhone%2013%20Pro%20Max" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- Mica Original -->
+    <div class="producto">
+      <img src="img/protector ori.jpg" alt="Protector de Pantalla Original" width="200" height="150">
+      <div class="nombre-modelo">Mica Original</div>
+      <div class="precio">120 BS</div>
+      <ul>
+        <li>📱 Mica Durisima para caidas y golpes</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20iPhone%2012%20Mini" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- Protector de Pantalla Normal -->
+    <div class="producto">
+      <img src="img/nomal pro.jpg" alt="Protector de Pantalla Normal" width="200" height="150">
+      <div class="nombre-modelo">Mica Normal</div>
+      <div class="precio">40-50bs</div>
+      <ul>
+        <li>📱 Precio varia segun el modelo</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20iPhone%2011%20Pro" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- Mica Antiespia -->
+    <div class="producto">
+      <img src="img/amti.jpg" alt=" Mica Antiespia" width="200" height="150">
+      <div class="nombre-modelo"> Mica Antiespia</div>
+      <div class="precio">100 BS</div>
+      <ul>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20iPhone%2011%20Pro" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- Protector de Camara -->
+    <div class="producto">
+      <img src="img/pro camara.jpg" alt="Protector de Camara" width="200" height="150">
+      <div class="nombre-modelo">Protector de Camara</div>
+      <div class="precio">50 BS</div>
+      <ul>
+       <p>COLORES DISPONIBLES</p>
+        <li>Negro</li>
+        <li>Rosado</li>
+        <li>Azul</li>
+        <li>Plomo</li>
+        <li>Celeste</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20iPhone%2011%20Pro" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- Protector de Camara Entero -->
+    <div class="producto">
+      <img src="img/entero pro camara.jpg" alt="Protector de Camara Entero" width="200" height="150">
+      <div class="nombre-modelo">Protector de Camara Entero</div>
+      <div class="precio">60bs</div>
+      <ul>
+        <p>COLORES DISPONIBLES</p>
+        <li>Transparente</li>
+        <li>Negro</li>
+        <li>Rosado</li>
+        <li>Azul</li>
+        <li>Plomo</li>
+        <li>Celeste</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20iPhone%2011%20Pro" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+  </section>
+
+  <h2>🔌🎧 Cargadores y Audífonos</h2>
+  <section class="catalogo catalogo--cargadores">
+
+    <!-- MagSafe -->
+    <div class="producto">
+      <img src="img/CARGADOR INA.jpg" alt="MagSafe" width="200" height="150">
+      <div class="nombre-modelo">MagSafe</div>
+      <div class="precio">550 BS</div>
+      <ul>
+        <li>⚡ Carga magnética rápida</li>
+        <li>🧲 Alineación precisa</li>
+        <li>🔌 USB-C</li>
+        <li>🛡️ Protección de sobrecarga</li>
+        <li>✅ Compatible iPhone 12+</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20MagSafe" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- Cargador Iphone Completo -->
+    <div class="producto">
+      <img src="img/cable iphone.jpg" alt="Cable Lightning 20W" width="200" height="150">
+      <div class="nombre-modelo">Cargador Iphone Completo</div>
+      <div class="precio">150 BS</div>
+      <ul>
+        <li>⚡ Carga rápida 25W</li>
+        <li>🔌 Conector Lightning</li>
+        <li>🧵 Reforzado, alta durabilidad</li>
+        <li>✅ Certificado</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20Cable%20Lightning%2020W" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- Cable Lightning 20W -->
+    <div class="producto">
+      <img src="img/cable iphone.jpg" alt="Cable Lightning 20W" width="200" height="150">
+      <div class="nombre-modelo">Cable Lightning 20W</div>
+      <div class="precio">80 BS</div>
+      <ul>
+        <li>⚡ Carga rápida 20W</li>
+        <li>🔌 Conector Lightning</li>
+        <li>🧵 Reforzado, alta durabilidad</li>
+        <li>📦 Longitud 1 m</li>
+        <li>✅ Certificado</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20Cable%20Lightning%2020W" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- Cubo 20W -->
+    <div class="producto">
+      <img src="img/cubo iphone.jpg" alt="Cubo 20W" width="200" height="150">
+      <div class="nombre-modelo">Cubo 20W</div>
+      <div class="precio">90 BS</div>
+      <ul>
+        <li>⚡ Carga rápida 20W</li>
+        <li>🔌 Puerto USB-C</li>
+        <li>🧠 Gestión térmica</li>
+        <li>🧳 Compacto y ligero</li>
+        <li>✅ iPhone y iPad</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20Cubo%2020W" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- Cable USB C -->
+    <div class="producto">
+      <img src="img/usb c.jpg" alt="Cable USB-C" width="200" height="150">
+      <div class="nombre-modelo">Cable USB C</div>
+      <div class="precio">90 BS</div>
+      <ul>
+        <li>⚡ Transferencia y carga</li>
+        <li>🔌 USB-C a USB-C</li>
+        <li>🧵 Trenzado, alta resistencia</li>
+        <li>📦 Longitud 1 m</li>
+        <li>✅ iPhone 15+</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20del%20Cable%20USB-C" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- AirPods Pro Gen 4 -->
+    <div class="producto">
+      <img src="img/gen 4.jpg" alt="AirPods Pro Gen 4" width="200" height="150">
+      <div class="nombre-modelo">AirPods Pro Gen 4</div>
+      <div class="precio">500 BS</div>
+      <ul>
+        <li>🔇 Cancelación activa de ruido</li>
+        <li>🎧 Audio espacial</li>
+        <li>🔋 Hasta 6 h por carga</li>
+        <li>🔌 Estuche USB-C/MagSafe</li>
+        <li>🌧️ Resistencia al agua y sudor</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20de%20los%20AirPods%20Pro%20Gen%204" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+    <!-- AirPods Pro Gen 2 -->
+    <div class="producto">
+      <img src="img/earpod 2 gen.jpg" alt="AirPods Pro Gen 2" width="200" height="150">
+      <div class="nombre-modelo">AirPods Pro Gen 2</div>
+      <div class="precio">400 BS</div>
+      <ul>
+        <li>🔇 Cancelación activa de ruido</li>
+        <li>🎧 Audio espacial</li>
+        <li>🔋 Hasta 6 h por carga</li>
+        <li>🔌 Estuche USB-C/MagSafe</li>
+        <li>🌧️ Resistencia al agua y sudor</li>
+      </ul>
+      <a class="whatsapp-button" href="https://wa.me/59172871287?text=Hola,%20quiero%20información%20de%20los%20AirPods%20Pro%20Gen%202" target="_blank">Compra WhatsApp 💬</a>
+    </div>
+
+  </section>
+
+  <footer>&copy; 2025 iStore X Bolivia. Todos los derechos reservados.</footer>
+
+</body>
+</html>
